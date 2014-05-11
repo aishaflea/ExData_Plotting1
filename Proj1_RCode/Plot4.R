@@ -11,6 +11,11 @@ x <- unlist(lapply(paste(dates, times), function(x) return(paste(
 
 x = strptime(x, "%m/%d/%y %H:%M:%S") 
 
+
+png(filename = "plot4.png", width = 480, height = 480,
+    units = "px", pointsize = 12, bg = "white", res = NA,
+    restoreConsole = TRUE)
+
 par(mfcol=c(2,2))
 
 plot(x,data$Global_active_power, type = "l", xlab = " ", 
@@ -26,3 +31,5 @@ plot(x, data$Voltage, ylab = "Voltage", xlab = "datetime", type = "l")
 
 plot(x, data$Global_reactive_power, ylab = "Global_reactive_power",
  xlab = "datetime", type = "l")
+
+dev.off()

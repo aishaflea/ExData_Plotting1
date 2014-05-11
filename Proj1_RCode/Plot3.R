@@ -11,6 +11,10 @@ x <- unlist(lapply(paste(dates, times), function(x) return(paste(
 
 x = strptime(x, "%m/%d/%y %H:%M:%S")
 
+png(filename = "plot3.png", width = 480, height = 480,
+    units = "px", pointsize = 12, bg = "white", res = NA,
+    restoreConsole = TRUE)
+
 plot(x, data$Sub_metering_1, type = "l", ylab = "Energy sub metering", 
 xlab = " ")
 
@@ -21,3 +25,5 @@ lines(x, data$Sub_metering_3, type = "l", col = "blue")
 legend("topright", lty = 1, col = c("black", "red", "blue"), 
 
 legend = c("Sub_metering_1", "Sub_metering_2", "Sub_metering_3"), cex = 0.8)
+
+dev.off()

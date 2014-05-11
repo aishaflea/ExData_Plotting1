@@ -12,5 +12,11 @@ x <- unlist(lapply(paste(dates, times), function(x) return(paste(
 
 x = strptime(x, "%m/%d/%y %H:%M:%S") 
 
+png(filename = "plot2.png", width = 480, height = 480,
+    units = "px", pointsize = 12, bg = "white", res = NA,
+    restoreConsole = TRUE)
+
 plot(x, data$Global_active_power, type = "l", xlab = "", 
 ylab = "Global Active Power (kilowatts)")
+
+dev.off()
